@@ -7,21 +7,19 @@ class MasterpieceCreator(ServeGradio):
     outputs = gr.outputs.Image(type="auto", label="Your masterpiece is ready")
     enable_queue = True
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
     def predict(self, prompt):
-        da = self.model.create(
+        results = self.model.create(
           text_prompts=prompt,
           width_height=[512, 512],
           n_batches=1,
         )
-        da[0].load_uri_to_image_tensor()
-        return da[0].tensor
+        result = results[0]
+        result.load_uri_to_image_tensor()
+        return result.tensor
 
     def build_model(self):
       import discoart
       return discoart
 
 
-app = L.LightningApp(MasterpieceCreator(cloud_compute=L.CloudCompute("gpu-fast")))
+app = L.LightningApp(MasterpieceCreator(cloud_compute=L.CloudCompute("gpu")))
