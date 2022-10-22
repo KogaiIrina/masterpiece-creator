@@ -1,4 +1,4 @@
 discoart==0.12.0
 jina==3.9.1
-lightning
+lightning-app==0.7.0
 gradio<=3.6

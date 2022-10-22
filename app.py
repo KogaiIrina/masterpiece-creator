@@ -1,6 +1,6 @@
 import gradio as gr
-import lightning as L
-from lightning.app.components.serve import ServeGradio
+import lightning_app as L
+from lightning_app.components.serve import ServeGradio
 
 class MasterpieceCreator(ServeGradio):
     inputs = gr.inputs.Textbox(label="print your prompt here")
