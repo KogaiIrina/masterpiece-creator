@@ -58,7 +58,13 @@ class MasterpieceCreator(ServeGradio):
       .gr-button-lg {
         border-radius: 120px;
       }
-
+      .gr-input:focus {
+        border-opacity: 0.5;
+        --tw-ring-opacity: 0;
+        --tw-border-opacity: 0.5;
+        box-shadow: none;
+        border-color: rgb(121, 46, 229);
+      }
       .gr-input:hover {
         border-color: rgb(121, 46, 229);
       }
