@@ -110,4 +110,4 @@ class MasterpieceCreator(ServeGradio):
             server_port=self.port,
         )
 
-app = L.LightningApp(MasterpieceCreator(cloud_compute=L.CloudCompute("gpu")))
+app = L.LightningApp(MasterpieceCreator(cloud_compute=L.CloudCompute("gpu-fast")))
