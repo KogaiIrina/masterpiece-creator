@@ -10,69 +10,26 @@ class MasterpieceCreator(ServeGradio):
       gr.components.Textbox(label="print your prompt here", elem_id="label"),
       gr.components.Dropdown(label="choose you model",
         choices=[
-          'PulpSciFiDiffusion',
-          'pixel_art_diffusion_hard_256',
-          'pixel_art_diffusion_soft_256',
-          'pixelartdiffusion4k',
-          'watercolordiffusion',
-          'watercolordiffusion_2',
-          'portrait_generator_v1.5',
-          'portrait_generator_v001_ema_0.9999_1MM',
-          'FeiArt_Handpainted_CG_Diffusion',
-          'Ukiyo-e_Diffusion_All_V1.by_thegenerativegeneration'
+          "PulpSciFiDiffusion",
+          "pixel_art_diffusion_hard_256",
+          "pixel_art_diffusion_soft_256",
+          "pixelartdiffusion4k",
+          "watercolordiffusion",
+          "watercolordiffusion_2",
+          "portrait_generator_v1.5",
+          "portrait_generator_v001_ema_0.9999_1MM",
+          "FeiArt_Handpainted_CG_Diffusion",
+          "Ukiyo-e_Diffusion_All_V1.by_thegenerativegeneration"
         ]),
       gr.components.Number(value=250, label="number of steps"),
     ]
     outputs = gr.components.Image(type="auto", label="Your masterpiece is ready")
-    css = '''
-      #component-6 {
-        flex: 1;
-        flex-grow: 1 !important;
-      }
-      #component-12 {
-        flex: 2;
-        flex-grow: 2 !important;
-      }
-      .gradio-container {
-        background: white;
-      }
-      .gr-text-input {
-        font-size: 15px;
-        border-radius: 6px;
-        box-shadow: none;
-        hover: 
-      }
-      .gr-button-primary {
-        background: linear-gradient(206.91deg, rgb(121, 46, 229) 16.83%, rgb(62, 171, 179) 144.59%);
-        color: white;
-        fontsize: 15;
-      }
-      .gr-button-secondary {
-        background: rgb(228, 230, 235);
-        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-          box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-          color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        fontsize: 15;
-        color: black;
-      }
-      .gr-button-lg {
-        border-radius: 120px;
-      }
-      .gr-input:focus {
-        border-opacity: 0.5;
-        --tw-ring-opacity: 0;
-        --tw-border-opacity: 0.5;
-        box-shadow: none;
-        border-color: rgb(121, 46, 229);
-      }
-      .gr-input:hover {
-        border-color: rgb(121, 46, 229);
-      }
-    '''
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.drive_1 = Drive("lit://drive_1")
+        with open("style.css", "r") as file:
+          self.css = file.read()
 
     def predict(self, prompt, model, number_of_steps):
 

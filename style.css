@@ -1,0 +1,49 @@
+#component-6 {
+  flex: 1;
+  flex-grow: 1 !important;
+}
+
+#component-12 {
+  flex: 2;
+  flex-grow: 2 !important;
+}
+
+.gradio-container {
+  background: white;
+}
+
+.gr-text-input {
+  font-size: 15px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.gr-button-primary {
+  background: linear-gradient(206.91deg, rgb(121, 46, 229) 16.83%, rgb(62, 171, 179) 144.59%);
+  color: white;
+  font-size: 15;
+}
+
+.gr-button-secondary {
+  background: rgb(228, 230, 235);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 15;
+  color: black;
+}
+
+.gr-button-lg {
+  border-radius: 120px;
+}
+
+.gr-input:focus {
+  --tw-ring-opacity: 0;
+  --tw-border-opacity: 0.5;
+  box-shadow: none;
+  border-color: rgb(121, 46, 229);
+}
+
+.gr-input:hover {
+  border-color: rgb(121, 46, 229);
+}
