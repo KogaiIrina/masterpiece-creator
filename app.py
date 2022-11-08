@@ -1,5 +1,6 @@
 import gradio as gr
 import lightning as L
+import urllib.parse
 from functools import partial
 from lightning.app.storage import Drive
 from lightning.app.components.serve import ServeGradio
@@ -85,7 +86,8 @@ class MasterpieceCreator(ServeGradio):
           clip_guidance_scale=40000,
         )
 
-        file_name = f"./{prompt}_{number_of_steps}.png"
+        encoded_prompt = urllib.parse.quote(prompt.replace(" ", "_"))
+        file_name = f"./{encoded_prompt}_{number_of_steps}.png"
         result = results[0]
         result.load_uri_to_image_tensor()
         result.save_image_tensor_to_file(file_name)
